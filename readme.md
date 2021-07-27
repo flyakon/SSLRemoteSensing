@@ -1,8 +1,8 @@
 # Overview.
-__Self-supervised Multi-task Representation Learningfor Remote Sensing Images
-[Paper]()__
+__Semantic Segmentation of Remote Sensing Images With Self-Supervised Multitask Representation Learning
+[Paper](https://ieeexplore.ieee.org/abstract/document/9460820)__
 
-Deep learning-based image analysis typically follows a network pre-training + fine-tuning paradigm. In the pre-training stage, large scale labeled datasets (like ImageNet) are required, but they are usually very difficult to obtain. To ease the burden of data annotation, self-supervised visual representation learning emerged recently. However, the methods designed for natural images may not naturally suitable to remote sensing images due to their discrepancy in image contents and characteristics. In this paper, we propose a self-supervised multi-task representation learning method for learning effective visual representations of remote sensing images. We bridge the gap between the pre-training and the downstream tasks by designing a triplet Siamese network to learn the high-level image features and low-level image features at the same time. By using our method, the pre-training of a backbone networks on remote sensing data does not require any manual annotations. Experimental results show that by comparing with ImageNet pretrained models, our method achieves comparable accuracy in the downstream task of scene classification task and higher accuracy in semantic segmentation. Our method also outperforms the recent state of the art self-supervised representation learning methods in both of the scene classification and semantic segmentation.
+Existing deep learning-based remote sensing images semantic segmentation methods require large-scale labeled datasets. However, the annotation of segmentation datasets is often too time-consuming and expensive. To ease the burden of data annotation, self-supervised representation learning methods have emerged recently. However, the semantic segmentation methods need to learn both high-level and low-level features, but most of the existing self-supervised representation learning methods usually focus on one level, which affects the performance of semantic segmentation for remote sensing images. In order to solve this problem, we propose a self-supervised multitask representation learning method to capture effective visual representations of remote sensing images. We design three different pretext tasks and a triplet Siamese network to learn the high-level and low-level image features at the same time. The network can be trained without any labeled data, and the trained model can be fine-tuned with the annotated segmentation dataset. We conduct experiments on Potsdam, Vaihingen dataset, and cloud/snow detection dataset Levir_CS to verify the effectiveness of our methods. Experimental results show that our proposed method can effectively reduce the demand of labeled datasets and improve the performance of remote sensing semantic segmentation. Compared with the recent state-of-the-art self-supervised representation learning methods and the mostly used initialization methods (such as random initialization and ImageNet pretraining), our proposed method has achieved the best results in most experiments, especially in the case of few training data. With only 10% to 50% labeled data, our method can achieve the comparable performance compared with random initialization.
 
 ![Overview](fig/overall_networks.png)
 
@@ -14,7 +14,7 @@ In this repository, we implement the training of self-supervised multi-task repr
 
 - python 3.6.7
 
-- pytorch 1.5.0
+- pytorch 1.7.0
 
 - torchvision 0.6.0
 
@@ -49,6 +49,13 @@ See also in [Requirements.txt](requirements.txt).
 If you find the code useful, please cite:
 
 ``````
-@InProceedings{
-}
+@ARTICLE{9460820,
+  author={Li, Wenyuan and Chen, Hao and Shi, Zhenwei},
+  journal={IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing}, 
+  title={Semantic Segmentation of Remote Sensing Images With Self-Supervised Multitask Representation Learning}, 
+  year={2021},
+  volume={14},
+  number={},
+  pages={6438-6450},
+  doi={10.1109/JSTARS.2021.3090418}}
 ``````
